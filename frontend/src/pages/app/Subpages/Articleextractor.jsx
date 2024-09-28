@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import './main.css'
 import { IoLinkOutline } from "react-icons/io5";
 import axios from 'axios';
@@ -8,15 +8,10 @@ import Errorbx from '../../../Components/Errorbbx/Errorbx';
 
 
 const Articleextractor = () => {
-
-
-
-
     const [inputValue, setInputValue] = useState("");
     const [loading, setLoading] = useState("");
     const [summary, setSummary] = useState("");
     const [err, setErr] = useState()
-
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value);

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './ProductInterface.css'
 import Textsummarizer from './Subpages/Textsummarizer'
 import Articlesummarizer from './Subpages/Articlesummarizer'
@@ -8,8 +8,6 @@ import VideoSummarizer from './Subpages/VideoSummarizer'
 import { Link, useParams } from "react-router-dom";
 
 const ProductInterface = () => {
-
-
 
   
   const [product, setProduct] = useState(1);
@@ -71,4 +69,3 @@ const ProductInterface = () => {
 
 
 export default ProductInterface
-

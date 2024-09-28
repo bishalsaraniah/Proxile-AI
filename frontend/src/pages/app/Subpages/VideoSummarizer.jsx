@@ -9,17 +9,44 @@ const VideoSummarizer = () => {
 
   // For Generating content from Gemini
 
-  const gemini_input = () => {
-    axios.post('http://localhost:7000/result', {
-      question: {videoUrl}, // Send the input question in the request body
-    })
-    .then(response => {
-      setresult(response.data.result); // Get the result from the response
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-  };
+  const options = {
+    method: 'GET',
+    get: 'https://localhost:3000/vel',
+    body: {
+      question: {videoUrl}
+    }
+};
+  
+
+  // const options = {
+  //   method: 'GET',
+  //   url: 'localhost:3000/vel',
+  //   // axios.get('https://youtube-video-summarizer-gpt-ai.p.rapidapi.com/api/v1/get-transcript-v2',
+  //    params: {
+  //     question: {videoUrl}
+  //    }
+};
+
+try {
+  const response = axios.request(options);
+  console.log(response.data);
+  const finalData = response.result.summary;
+  setresult(finalData)
+} catch (error) {
+  console.error(error);
+}
+
+  // const options = () => {
+  //   axios.post('http://localhost:3000/videosummarizer', {
+  //     question: {videoUrl},
+  //   })
+  //   .then(response => {
+  //     setresult(response.data.result); // Get the result from the response
+  //   })
+  //   .catch(error => {
+  //     console.error('Error:', error);
+  //   });
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,7 +56,7 @@ const VideoSummarizer = () => {
 
   // Video Input Component
   const VideoInput = () => (
-    <form action="POST">
+    <form action="POST" method="post">
       <input
         className="VideoInput"
         type="text"
@@ -49,7 +76,7 @@ const VideoSummarizer = () => {
 
   // Submit Button Component
   const SubmitButton = () => (
-    <button className="SubmitButton" type="submit" onClick={gemini_input} value="Submit">
+    <button className="SubmitButton" type="submit" onClick={options} value="Submit">
       Summarize
       <span className="transition"></span>
       <span className="gradient"></span>
@@ -78,6 +105,12 @@ const VideoSummarizer = () => {
   );
 };
 export default VideoSummarizer;
+
+
+
+
+
+
 
 // import { useState } from 'react';
 // import axios from 'axios';
