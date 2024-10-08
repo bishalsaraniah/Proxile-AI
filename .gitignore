@@ -1,4 +1,10 @@
 frontend/node_modules
+
+frontend/src/pages/app/Subpages/VideoSummarizer2.jsx
+frontend/src/pages/app/Subpages/Try.jsx
+
+
+
 backend/node_modules
 
 .env

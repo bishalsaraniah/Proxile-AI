@@ -15,9 +15,9 @@ const Products = () => {
           <Link to={'/appinterface/textsummarizer'}>
             <div className="productcrd crd2">Text Summarizer</div>
           </Link>
-          <Link to={'/appinterface/articleextractor'}>
+          {/* <Link to={'/appinterface/articleextractor'}>
             <div className="productcrd crd3">Article Extractor</div>
-          </Link>
+          </Link> */}
           <Link to={'/appinterface/pdfsummarizer'}>
             <div className="productcrd crd4">PDF Summarizer</div>
           </Link>

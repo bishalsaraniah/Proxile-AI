@@ -48,15 +48,20 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 app.use(express.json());
-app.use(cors);
+app.use(cors());
 app.use(bodyParser.json());
 
-app.get('/', (req,res) => {
-    res.send("Hello Gemini");
+// app.get('/', (req,res) => {
+//     res.json("Hello Gemini");
+// })
+
+app.get('/', (req,res)=>{
+    res.json({mssg:"Welcome to the server GET"})
 })
 
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
+// const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro-002"});
 
 const generate = async(prompt) => {
     try{
@@ -69,11 +74,11 @@ const generate = async(prompt) => {
 }
 
 
-app.get('/vel', async(req,res) => {
+app.post('/vel', async(req,res) => {
     try{
-        const data = req.body.question;
+        const data = req.body.question
         const result = await generate(data);
-        res.send({
+        res.json({
             "result": result
         })
     } catch {
