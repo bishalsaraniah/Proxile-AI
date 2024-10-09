@@ -1,5 +1,18 @@
 {
     "version": 2,
-    "builds": [{"src": "./gemini_for_youtube.js", "use": "@vercel/node"}],
-    "routes": [{"src": "/(.*)", "dest": "/gemini_for_youtube.js"}]
+    "builds": 
+    [
+        {
+            "src": "gemini_for_youtube.js",
+            "use": "@vercel/node"
+        }
+    ],
+
+    "routes": 
+    [
+        {
+            "src": "/(.*)",
+            "dest": "/gemini_for_youtube.js"
+        }
+    ]
 }

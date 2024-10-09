@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import "./v.css";
+import "./main.css";
 
 const VideoSummarizer = () => {
   const [videoUrl, setVideoUrl] = useState("");
@@ -16,8 +16,8 @@ const VideoSummarizer = () => {
 
     try {
       const response = await axios.post('http://localhost:3000/vel', {
-        // question:`Please provide me the summary of the youtube video which is available in the following url ${videoUrl}`
-                question: `${videoUrl}`
+        question:`Please provide me the summary of the youtube video which is available in the following url ${videoUrl}`
+                // question: `${videoUrl}`
       });
       setResult(response.data.result);
     } catch (error) {
@@ -52,10 +52,12 @@ const VideoSummarizer = () => {
 
   // Output Content
   const OutputContent = () => (
-    <div className="output">
-      {error && <p className="error">{error}</p>}
-      {result && <p>{result}</p>}
+  <div className="summaryarea main">
+    <div className="summary-bx w100">
+    {error && <p className="error">{error}</p>}
+    {result && <p>{result}</p>}
     </div>
+  </div>
   );
 
   return (

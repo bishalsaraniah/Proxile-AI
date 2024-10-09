@@ -56,7 +56,7 @@ app.use(bodyParser.json());
 // })
 
 app.get('/', (req,res)=>{
-    res.json({mssg:"Welcome to the server GET"})
+    res.json({mssg:"Welcome to the server"})
 })
 
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
