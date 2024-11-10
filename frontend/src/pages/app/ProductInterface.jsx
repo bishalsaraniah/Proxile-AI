@@ -2,34 +2,16 @@ import { useEffect, useState } from 'react'
 import './ProductInterface.css'
 import Textsummarizer from './Subpages/Textsummarizer'
 import Articlesummarizer from './Subpages/Articlesummarizer'
-// import Articleextractor from './Subpages/Articleextractor'
 import Pdfsummarizer from './Subpages/Pdfsummarizer'
 import VideoSummarizer from './Subpages/VideoSummarizer'
 import { Link, useParams } from "react-router-dom";
 
 const ProductInterface = () => {
 
-  
-  const [product, setProduct] = useState(1);
+const [product, setProduct] = useState(1);
 
   
   let { aiproduct } = useParams();
-
-  
-  // useEffect(() => {
-  //   if (aiproduct === "articleextractor") {
-  //     setProduct(3);
-  //   } else if (aiproduct === "textsummarizer") {
-  //     setProduct(2);
-  //   } else if (aiproduct === "pdfsummarizer") {
-  //     setProduct(4);
-  //   } else if (aiproduct === "videosummarizer") {
-  //     setProduct(5);
-  //   } else {
-  //     setProduct(1);
-  //   }
-  // }, [aiproduct]);
-
 
   useEffect(() => {
     if (aiproduct === "pdfsummarizer") {
@@ -60,7 +42,6 @@ const ProductInterface = () => {
             {
               product === 1 ? "AI Article Summarization: Instantly condense lengthy articles into concise summaries using advanced AI algorithms."
                 : product === 2 ? "Text Summarization: Simplify any text or document into key points and main ideas effortlessly"
-                  // : product === 3 ? "AI Article Extractor: Extract articles directly from websites and blogs for quick summarization"
                   : product === 3 ? "AI PDF Summarization : Simplifies the content given in the pdf"
                   : "Youtube Video Summarizer : Fetches data of Youtube videos and provides meaningful summary."
             }

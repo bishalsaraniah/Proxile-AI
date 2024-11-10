@@ -1,4 +1,5 @@
 import { useState } from "react";
+import TextToSpeech from '../../../Components/TextToSpeech/TextToSpeech';
 import axios from "axios";
 import "./main.css";
 
@@ -15,10 +16,8 @@ const VideoSummarizer = () => {
     setResult("");
 
     try {
-      // const response = await axios.post('http://localhost:3000/vel', {
-        const response = await axios.post('https://proxile-ai-backend.vercel.app/vel', {
-        question:`Please provide me the summary of the youtube video which is available in the following url ${videoUrl}`
-                // question: `${videoUrl}`
+      const response = await axios.post('http://localhost:4000/api/videosummary/ysummarize', {
+        question:`Please provide me the summary of the youtube video from the given link  ${videoUrl}`
       });
       setResult(response.data.result);
     } catch (error) {
@@ -29,6 +28,7 @@ const VideoSummarizer = () => {
     }
   };
 
+  
   // Video Input Component
   const VideoInput = () => (
     <input
@@ -62,13 +62,18 @@ const VideoSummarizer = () => {
   );
 
   return (
-    <div className="app">
+  <>
+      <div className="app">
       <form onSubmit={handleSubmit}>
         <VideoInput />
         <SubmitButton />
       </form>
       <OutputContent />
     </div>
+    <div>
+      <TextToSpeech value={result}/>
+    </div>
+  </>
   );
 };
 

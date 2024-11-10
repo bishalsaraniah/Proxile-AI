@@ -4,6 +4,7 @@ import './main.css'
 import { IoLinkOutline } from "react-icons/io5";
 import Loader from '../../../Components/Loader/Loader';
 import Errorbx from '../../../Components/Errorbbx/Errorbx';
+import TextToSpeech from '../../../Components/TextToSpeech/TextToSpeech';
 
 const Articlesummarizer = () => {
 
@@ -89,8 +90,9 @@ const Articlesummarizer = () => {
                     </ div>
                 ) : ' '
             }
-
-
+            <div>
+                <TextToSpeech value={summary}/>
+            </div>
         </>
     )
 }
