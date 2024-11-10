@@ -2,12 +2,15 @@ import { useState } from "react";
 import TextToSpeech from '../../../Components/TextToSpeech/TextToSpeech';
 import axios from "axios";
 import "./main.css";
+import Quiz from '../../../Components/Quiz/Quiz';
+import QuizGenerator from '../../../Components/QuizGenerator/QuizGenerator';
 
 const VideoSummarizer = () => {
   const [videoUrl, setVideoUrl] = useState("");
   const [result, setResult] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [quizbtn, setquizbtn] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -72,6 +75,13 @@ const VideoSummarizer = () => {
     </div>
     <div>
       <TextToSpeech value={result}/>
+                      {/* <Quiz onClick={()=>{setquizbtn(true);console.log("Button clicked");}} /> */}
+                      <button onClick={()=>{setquizbtn(true);console.log("Button CLicked");}} className="pushable2">
+                    <span className="shadow2"></span>
+                    <span className="edge2"></span>
+                    <span className="front2"> Quiz </span>
+                </button>
+                {quizbtn && <QuizGenerator summary={result}></QuizGenerator>}
     </div>
   </>
   );

@@ -5,6 +5,8 @@ import { IoLinkOutline } from "react-icons/io5";
 import Loader from '../../../Components/Loader/Loader';
 import Errorbx from '../../../Components/Errorbbx/Errorbx';
 import TextToSpeech from '../../../Components/TextToSpeech/TextToSpeech';
+import Quiz from '../../../Components/Quiz/Quiz';
+import QuizGenerator from '../../../Components/QuizGenerator/QuizGenerator';
 
 const Articlesummarizer = () => {
 
@@ -13,6 +15,7 @@ const Articlesummarizer = () => {
     const [loading, setLoading] = useState("");
     const [summary, setSummary] = useState("");
     const [err, setErr] = useState()
+    const [quizbtn, setquizbtn] = useState(false)
 
 
     const handleInputChange = (e) => {
@@ -92,6 +95,13 @@ const Articlesummarizer = () => {
             }
             <div>
                 <TextToSpeech value={summary}/>
+                {/* <Quiz onClick={()=>{setquizbtn(true);console.log("Button clicked");}} /> */}
+                <button onClick={()=>{setquizbtn(true);console.log("Button CLicked");}} className="pushable2">
+                    <span className="shadow2"></span>
+                    <span className="edge2"></span>
+                    <span className="front2"> Quiz </span>
+                </button>
+                {quizbtn && <QuizGenerator summary={summary}></QuizGenerator>}
             </div>
         </>
     )
