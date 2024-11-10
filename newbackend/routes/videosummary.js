@@ -12,7 +12,7 @@ router.use(bodyParser.json());
         res.json({mssg:"Welcome to the Video Summarizer"})
     })
     
-    const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+    const genAI = new GoogleGenerativeAI(process.env.API_KEY_FOR_SUMMARY);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro-002"});
     
     const generate = async(prompt) => {

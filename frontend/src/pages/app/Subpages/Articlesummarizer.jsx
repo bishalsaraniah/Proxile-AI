@@ -5,7 +5,6 @@ import { IoLinkOutline } from "react-icons/io5";
 import Loader from '../../../Components/Loader/Loader';
 import Errorbx from '../../../Components/Errorbbx/Errorbx';
 import TextToSpeech from '../../../Components/TextToSpeech/TextToSpeech';
-import Quiz from '../../../Components/Quiz/Quiz';
 import QuizGenerator from '../../../Components/QuizGenerator/QuizGenerator';
 
 const Articlesummarizer = () => {
@@ -15,7 +14,6 @@ const Articlesummarizer = () => {
     const [loading, setLoading] = useState("");
     const [summary, setSummary] = useState("");
     const [err, setErr] = useState()
-    const [quizbtn, setquizbtn] = useState(false)
 
 
     const handleInputChange = (e) => {
@@ -38,7 +36,8 @@ const Articlesummarizer = () => {
                 length: '3'
             },
             headers: {
-                'x-rapidapi-key': '47695e702cmshb8bb391f8faac5bp199044jsn9ed4811905f9',
+                // 'x-rapidapi-key': '47695e702cmshb8bb391f8faac5bp199044jsn9ed4811905f9',
+                'x-rapidapi-key': '6f68f7d326msh443ddf50f9ab214p147137jsn089d377ec1bb',
                 'X-RapidAPI-Host': 'article-extractor-and-summarizer.p.rapidapi.com'
             }
         };
@@ -95,13 +94,7 @@ const Articlesummarizer = () => {
             }
             <div>
                 <TextToSpeech value={summary}/>
-                {/* <Quiz onClick={()=>{setquizbtn(true);console.log("Button clicked");}} /> */}
-                <button onClick={()=>{setquizbtn(true);console.log("Button CLicked");}} className="pushable2">
-                    <span className="shadow2"></span>
-                    <span className="edge2"></span>
-                    <span className="front2"> Quiz </span>
-                </button>
-                {quizbtn && <QuizGenerator summary={summary}></QuizGenerator>}
+                {<QuizGenerator summary={summary}></QuizGenerator>}
             </div>
         </>
     )

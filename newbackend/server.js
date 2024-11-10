@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 
 const videosummaryroutes = require("./routes/videosummary.js");
+const quizroutes = require("./routes/quiz.js");
 // const pdfsummaryroutes = require("./routes/pdfsummary.js");
 require("dotenv").config();
 
@@ -14,6 +15,9 @@ app.use('/',(req,res,next)=>{
     next();
 })
 app.use('/api/videosummary',videosummaryroutes)
+
+app.use('/api/quiz',quizroutes)
+
 // app.use('/api/pdfsummary',pdfsummaryroutes)
 
 

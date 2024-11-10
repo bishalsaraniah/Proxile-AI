@@ -2,7 +2,6 @@ import { useState } from "react";
 import TextToSpeech from '../../../Components/TextToSpeech/TextToSpeech';
 import axios from "axios";
 import "./main.css";
-import Quiz from '../../../Components/Quiz/Quiz';
 import QuizGenerator from '../../../Components/QuizGenerator/QuizGenerator';
 
 const VideoSummarizer = () => {
@@ -10,7 +9,6 @@ const VideoSummarizer = () => {
   const [result, setResult] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [quizbtn, setquizbtn] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,7 +32,9 @@ const VideoSummarizer = () => {
   
   // Video Input Component
   const VideoInput = () => (
-    <input
+    <div className="inputarea main">
+      <div className="inputArea w100">
+      <input
       className="VideoInput"
       type="text"
       value={videoUrl}
@@ -42,6 +42,9 @@ const VideoSummarizer = () => {
       required
       onChange={(e) => setVideoUrl(e.target.value)}
     />
+    <SubmitButton/>
+      </div>
+    </div>
   );
 
   // Submit Button Component
@@ -50,7 +53,7 @@ const VideoSummarizer = () => {
       {isLoading ? "Summarizing..." : "Summarize"}
       <span className="transition"></span>
       <span className="gradient"></span>
-      <span className="label">Button</span>
+      <span className="label"></span>
     </button>
   );
 
@@ -69,19 +72,12 @@ const VideoSummarizer = () => {
       <div className="app">
       <form onSubmit={handleSubmit}>
         <VideoInput />
-        <SubmitButton />
       </form>
       <OutputContent />
     </div>
     <div>
       <TextToSpeech value={result}/>
-                      {/* <Quiz onClick={()=>{setquizbtn(true);console.log("Button clicked");}} /> */}
-                      <button onClick={()=>{setquizbtn(true);console.log("Button CLicked");}} className="pushable2">
-                    <span className="shadow2"></span>
-                    <span className="edge2"></span>
-                    <span className="front2"> Quiz </span>
-                </button>
-                {quizbtn && <QuizGenerator summary={result}></QuizGenerator>}
+      {<QuizGenerator summary={result}></QuizGenerator>}
     </div>
   </>
   );

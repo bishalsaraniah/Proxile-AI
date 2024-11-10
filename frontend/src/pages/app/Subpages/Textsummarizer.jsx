@@ -4,7 +4,6 @@ import axios from 'axios';
 import Loader from '../../../Components/Loader/Loader';
 import Errorbx from '../../../Components/Errorbbx/Errorbx';
 import TextToSpeech from '../../../Components/TextToSpeech/TextToSpeech';
-import Quiz from '../../../Components/Quiz/Quiz';
 import QuizGenerator from '../../../Components/QuizGenerator/QuizGenerator';
 
 
@@ -16,7 +15,6 @@ const Textsummarizer = () => {
   const [loading, setLoading] = useState("");
   const [summary, setSummary] = useState("");
   const [err, setErr] = useState()
-  const [quizbtn, setquizbtn] = useState(false)
 
 
   const handleInputChange = (e) => {
@@ -36,7 +34,8 @@ const Textsummarizer = () => {
       url: 'https://article-extractor-and-summarizer.p.rapidapi.com/summarize-text',
       headers: {
         'content-type': 'application/json',
-        'x-rapidapi-key': '47695e702cmshb8bb391f8faac5bp199044jsn9ed4811905f9',
+        // 'x-rapidapi-key': '47695e702cmshb8bb391f8faac5bp199044jsn9ed4811905f9',
+        'x-rapidapi-key': '6f68f7d326msh443ddf50f9ab214p147137jsn089d377ec1bb',
         'X-RapidAPI-Host': 'article-extractor-and-summarizer.p.rapidapi.com'
       },
       data: {
@@ -65,7 +64,7 @@ const Textsummarizer = () => {
 
       <div className="inputarea main">
         <div className="textarea w100">
-          <textarea onChange={handleInputChange} defaultValue={"Enter your text here"}></textarea>
+          <textarea onChange={handleInputChange} placeholder={"Enter your text here"}></textarea>
         </div>
         <button onClick={() => handleSearch()} disabled={!inputValue} className='txt-sum-btn'>Summarize Text</button>
       </div>
@@ -97,14 +96,8 @@ const Textsummarizer = () => {
         ) : ''
       }
       <div>
-      <TextToSpeech value={summary}/>
-      {/* <Quiz onClick={()=>{setquizbtn(true);console.log("Button clicked");}} /> */}
-      <button onClick={()=>{setquizbtn(true);console.log("Button CLicked");}} className="pushable2">
-            <span className="shadow2"></span>
-            <span className="edge2"></span>
-            <span className="front2"> Quiz </span>
-        </button>
-      {quizbtn && <QuizGenerator summary={summary}></QuizGenerator>}
+        <TextToSpeech value={summary}/>
+        {<QuizGenerator summary={summary}></QuizGenerator>}
       </div>
     </>
   )

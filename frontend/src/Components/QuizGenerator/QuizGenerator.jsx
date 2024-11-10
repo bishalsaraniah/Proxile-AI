@@ -37,18 +37,21 @@
 // QuizGenerator.js
 
 
+
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const QuizGenerator = ({ summary }) => {
   const [generatedQuizzes, setGeneratedQuizzes] = useState([]); // Array to store all generated quizzes
   const [error, setError] = useState(null);
+  const [quizBtnClicked, setQuizBtnClicked] = useState(false); // State to handle button click
 
   useEffect(() => {
     const generateQuiz = async () => {
       setError(null);
       try {
-        const response = await axios.post('http://localhost:4000/api/videosummary/ysummarize', {
+        const response = await axios.post('http://localhost:4000/api/quiz/generatedquiz', {
           question: `From the given paragraph, ask me a quiz with 4 options to test my knowledge: ${summary}`
         });
         // Append the new quiz to the generatedQuizzes array
@@ -60,11 +63,20 @@ const QuizGenerator = ({ summary }) => {
       }
     };
 
-    if (summary) generateQuiz();
-  }, [summary]);
+    if (quizBtnClicked && summary) {
+      generateQuiz();
+      setQuizBtnClicked(false); // Reset button click state after generating quiz
+    }
+  }, [quizBtnClicked, summary]);
 
   return (
     <div>
+      <button onClick={() => setQuizBtnClicked(true)} className="pushable2">
+        <span className="shadow2"></span>
+        <span className="edge2"></span>
+        <span className="front2"> Quiz </span>
+      </button>
+      
       {generatedQuizzes.length > 0 && (
         <div>
           <h3>Generated Quizzes:</h3>
@@ -75,6 +87,7 @@ const QuizGenerator = ({ summary }) => {
           </ul>
         </div>
       )}
+      
       {error && <div>{error}</div>}
     </div>
   );
