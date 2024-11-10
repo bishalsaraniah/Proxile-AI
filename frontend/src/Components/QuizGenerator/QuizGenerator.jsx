@@ -52,7 +52,7 @@ const QuizGenerator = ({ summary }) => {
       setError(null);
       try {
         // const response = await axios.post('http://localhost:4000/api/quiz/generatedquiz', {
-          const response = await axios.post('https://proxile-ai-backend.vercel.app/', {
+          const response = await axios.post('https://proxile-ai-backend.vercel.app/api/quiz/generatedquiz', {
           question: `From the given paragraph, ask me a quiz with 4 options to test my knowledge: ${summary}`
         });
         // Append the new quiz to the generatedQuizzes array

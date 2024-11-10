@@ -18,7 +18,7 @@ const VideoSummarizer = () => {
 
     try {
       // const response = await axios.post('http://localhost:4000/api/videosummary/ysummarize', {
-        const response = await axios.post('https://proxile-ai-backend.vercel.app/', {
+        const response = await axios.post('https://proxile-ai-backend.vercel.app/api/videosummary/ysummarize', {
         question:`Please provide me the summary of the youtube video from the given link  ${videoUrl}`
       });
       setResult(response.data.result);
