@@ -14,7 +14,8 @@ router.use(bodyParser.json());
     
     const genAI = new GoogleGenerativeAI(process.env.API_KEY_FOR_SUMMARY);
     // const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro-002"});
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
+    // const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-exp-0827"});
     
     const generate = async(prompt) => {
         try{
