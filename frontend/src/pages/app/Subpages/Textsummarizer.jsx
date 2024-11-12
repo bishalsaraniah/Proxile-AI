@@ -6,7 +6,6 @@ import Errorbx from '../../../Components/Errorbbx/Errorbx';
 import TextToSpeech from '../../../Components/TextToSpeech/TextToSpeech';
 import QuizGenerator from '../../../Components/QuizGenerator/QuizGenerator';
 
-
 const Textsummarizer = () => {
 
 
