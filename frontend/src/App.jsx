@@ -10,7 +10,6 @@ import ProductInterface from './pages/app/ProductInterface'
 
 function App() {
 
-
   return (
     <>
       <Router>
