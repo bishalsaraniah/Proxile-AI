@@ -37,7 +37,8 @@ const Articlesummarizer = () => {
             },
             headers: {
                 // 'x-rapidapi-key': '47695e702cmshb8bb391f8faac5bp199044jsn9ed4811905f9',
-                'x-rapidapi-key': '6f68f7d326msh443ddf50f9ab214p147137jsn089d377ec1bb',
+                // 'x-rapidapi-key': '6f68f7d326msh443ddf50f9ab214p147137jsn089d377ec1bb',
+                'x-rapidapi-key': '2d83c306d6mshe8bb4e8f6b74c56p186d49jsn2d54461d899a',
                 'X-RapidAPI-Host': 'article-extractor-and-summarizer.p.rapidapi.com'
             }
         };
@@ -79,9 +80,10 @@ const Articlesummarizer = () => {
 
                         <div className="summary-bx article w100">
                             <div className="summaryHead">
+                                <h3>Article Summary:</h3>
                                 <span className='url'>{inputValue}</span>
                             </div>
-                            <h3>Article Summary:</h3>
+                            {/* <h3>Article Summary:</h3> */}
                             <br />
                             <p>
                                 {
@@ -94,7 +96,7 @@ const Articlesummarizer = () => {
             }
             <div>
                 <TextToSpeech value={summary}/>
-                {<QuizGenerator summary={summary}></QuizGenerator>}
+                {<QuizGenerator summary={summary}/>}
             </div>
         </>
     )

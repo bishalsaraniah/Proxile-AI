@@ -78,7 +78,7 @@ const VideoSummarizer = () => {
     </div>
     <div>
       <TextToSpeech value={result}/>
-      {<QuizGenerator summary={result}></QuizGenerator>}
+      {<QuizGenerator summary={result}/>}
     </div>
   </>
   );

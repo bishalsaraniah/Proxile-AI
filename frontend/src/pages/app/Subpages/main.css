@@ -163,10 +163,6 @@ button[disabled] {
     opacity: 1;
 }
 
-.summaryarea{
-    padding-bottom: 50px;
-}
-
 .summary-bx.article {
     padding-top: 40px;
 }
@@ -184,13 +180,17 @@ button[disabled] {
     padding: 0 12px;
 }
 
-.summaryHead .url {
+/* .summaryHead .url {
     font-size: 12px;
     color: #7c7c7c;
     display: flex;
     align-items: center;
     gap: 10px;
     line-height: 12px;
+} */
+
+.summaryHead .url {
+    display: none;
 }
 
 .url-icon {

@@ -18,7 +18,7 @@ const TextToSpeech = ({ value }) => {
     }, []);
 
     return (
-        <div>
+        <div className='ttp-container'>
             <button className='voicebtn' onClick={handleClick}></button>
         </div>
     );

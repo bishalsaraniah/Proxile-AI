@@ -1,0 +1,29 @@
+.gq-container {
+    margin-left: 62.5em;
+    margin-top: -5.5em;
+    margin-bottom: 3em;
+}
+
+.gq-results {
+    border: 1px solid #BEBEBE;
+    padding: 1em;
+    max-width: 700px;
+    margin-top: 3em;
+    margin-left: -37em;
+    margin-bottom: 2em;
+    border-radius: 16px;
+}
+
+.gq-results h3 {
+    padding-bottom: 2em;
+}
+
+.gq-results-ol {
+    margin-left: 1em;
+    /* list-style: none; */
+}
+
+.gq-results-ol li {
+    padding-bottom: 2em;
+}
+

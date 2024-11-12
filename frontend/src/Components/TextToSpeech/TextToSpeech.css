@@ -1,4 +1,11 @@
 /* From Uiverse.io by ercnersoy */ 
+
+.ttp-container {
+  margin-top: 2em;
+  margin-left: 25em;
+  margin-bottom: 2em;
+}
+
 .voicebtn {
     padding: 5px;
     border-radius: 100%;
