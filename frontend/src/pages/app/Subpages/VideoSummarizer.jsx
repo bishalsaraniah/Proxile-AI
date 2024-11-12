@@ -70,16 +70,16 @@ const VideoSummarizer = () => {
 
   return (
   <>
-      <div className="app">
-      <form onSubmit={handleSubmit}>
-        <VideoInput />
-      </form>
+  <div className="app">
+    <form onSubmit={handleSubmit}>
+      <VideoInput />
+    </form>
       <OutputContent />
-    </div>
-    <div>
-      <TextToSpeech value={result}/>
-      {<QuizGenerator summary={result}/>}
-    </div>
+  </div>
+  <div>
+    <TextToSpeech value={result}/>
+    {<QuizGenerator summary={result}/>}
+  </div>
   </>
   );
 };
